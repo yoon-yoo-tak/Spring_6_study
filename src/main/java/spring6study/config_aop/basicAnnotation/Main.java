@@ -1,11 +1,11 @@
-package spring6study.config_aop;
+package spring6study.config_aop.basicAnnotation;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring6study.config_aop.basicAnnotation.config.AppConfig;
 import spring6study.config_aop.basicAnnotation.controller.UserController;
 
-public class ConfigAopApplication {
+public class Main{
     public static void main(String[] args) {
         // ApplicationContext 초기화
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -17,6 +17,3 @@ public class ConfigAopApplication {
         userController.showUserData();
     }
 }
-
-
-
