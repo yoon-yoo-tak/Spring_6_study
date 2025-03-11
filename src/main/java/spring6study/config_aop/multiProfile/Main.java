@@ -1,14 +1,11 @@
-package spring6study.config_aop;
+package spring6study.config_aop.multiProfile;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ConfigAopApplication {
+public class Main {
     public static void main(String[] args) {
-        SpringApplication.run(ConfigAopApplication.class, args);
+        SpringApplication.run(Main.class, args);
     }
 }
-
-
-
