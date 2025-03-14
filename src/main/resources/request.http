@@ -1,0 +1,9 @@
+###
+//@no-log
+GET http://localhost:8080/users/by-username?
+    username=User5344
+
+###
+//@no-log
+GET http://localhost:8080/users/by-email?
+    email=user1@example.com
