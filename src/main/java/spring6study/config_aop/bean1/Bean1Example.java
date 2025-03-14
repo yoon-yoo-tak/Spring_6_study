@@ -1,9 +1,7 @@
-package spring6study.config_aop;
+package spring6study.config_aop.bean1;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring6study.config_aop.bean1.AppConfig;
-import spring6study.config_aop.bean1.BeanOne;
 
 public class Bean1Example {
     public static void main(String[] args) {
