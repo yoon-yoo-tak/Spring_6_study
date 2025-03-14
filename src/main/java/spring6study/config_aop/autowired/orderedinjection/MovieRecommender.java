@@ -16,7 +16,7 @@ public class MovieRecommender {
     }
 
     public void printCatalogs() {
-        System.out.println("🎥 Available Movie Catalogs (Ordered List):");
+        System.out.println("Available Movie Catalogs (Ordered List):");
         for (MovieCatalog catalog : movieCatalogs) {
             System.out.println("- " + catalog.getCatalogName());
         }

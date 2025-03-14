@@ -1,4 +1,4 @@
-package spring6study.config_aop.autowired.customAnnotation;
+package spring6study.config_aop.basicAnnotation.customAnnotation;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;

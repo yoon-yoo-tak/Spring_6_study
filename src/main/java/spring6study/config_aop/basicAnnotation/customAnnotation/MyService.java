@@ -1,4 +1,4 @@
-package spring6study.config_aop.autowired.customAnnotation;
+package spring6study.config_aop.basicAnnotation.customAnnotation;
 
 @MyComponent(value = "customBean", role = "admin")
 public class MyService {

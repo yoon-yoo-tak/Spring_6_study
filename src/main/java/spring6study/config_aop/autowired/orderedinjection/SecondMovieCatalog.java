@@ -4,7 +4,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
-//@Order(2) // 두 번째 우선순위
+@Order(2) // 두 번째 우선순위
 public class SecondMovieCatalog implements MovieCatalog {
     @Override
     public String getCatalogName() {

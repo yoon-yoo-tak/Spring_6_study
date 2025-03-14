@@ -8,13 +8,11 @@ import org.springframework.core.annotation.Order;
 public class MovieCatalogConfig {
 
     @Bean
-    @Order(1)
     public MovieCatalog firstMovieCatalog() {
         return new FirstMovieCatalog();
     }
 
     @Bean
-    @Order(2)
     public MovieCatalog secondMovieCatalog() {
         return new SecondMovieCatalog();
     }
