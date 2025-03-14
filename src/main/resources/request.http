@@ -1,0 +1,17 @@
+### 사용자 생성
+//@no-log
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example.com"
+}
+
+###
+//@no-log
+GET http://localhost:8080/users/by-username?username=testuser
+
+###
+//@no-log
+GET http://localhost:8080/users/by-email?email=test@example.com
