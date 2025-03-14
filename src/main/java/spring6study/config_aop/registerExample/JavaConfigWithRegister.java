@@ -1,6 +1,5 @@
-package spring6study.config_aop;
+package spring6study.config_aop.registerExample;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring6study.config_aop.service.Dependency1;
 import spring6study.config_aop.service.Dependency2;

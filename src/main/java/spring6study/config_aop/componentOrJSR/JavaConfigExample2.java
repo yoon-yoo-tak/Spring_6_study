@@ -1,4 +1,4 @@
-package spring6study.config_aop;
+package spring6study.config_aop.componentOrJSR;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
