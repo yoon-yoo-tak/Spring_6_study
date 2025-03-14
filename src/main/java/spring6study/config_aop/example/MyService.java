@@ -18,4 +18,8 @@ public class MyService {
         System.out.println("MyService.throwException() 실행");
         throw new RuntimeException("예외 발생!");
     }
+
+    public void getString(String str){
+        System.out.println("MyService.getString() 실행");
+    }
 }

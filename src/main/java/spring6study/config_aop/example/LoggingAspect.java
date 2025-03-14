@@ -5,12 +5,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Modifier;
+
 @Aspect
 @Component
 public class LoggingAspect {
 
     @Before("execution(* spring6study.config_aop.example.MyService.*(..))")
-    public void logBefore(){
+    public void logBefore(JoinPoint jp){
         System.out.println("[Before] 메서드 실행 전에 로그 출력");
     }
 

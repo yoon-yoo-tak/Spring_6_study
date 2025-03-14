@@ -17,7 +17,7 @@ public class LoggingAspect {
     // 2. within - 특정 패키지 내부의 모든 메서드 실행시
     @Before("within(spring6study.config_aop.pointcutExample.service..*)")
     public void logWithin(){
-        System.out.println("[within] com.example.service 패키지 내부 메서드 실행");
+        System.out.println("[within] service 패키지 내부 메서드 실행");
     }
 
     // 3. this - 프록시 객체가 특정 타입일때
