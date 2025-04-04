@@ -1,4 +1,4 @@
-package spring6study.config_aop.envConfig;
+package spring6study.config_aop.envconfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

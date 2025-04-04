@@ -1,4 +1,4 @@
-package spring6study.config_aop.envConfig;
+package spring6study.config_aop.envconfig;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.core.env.Environment;
