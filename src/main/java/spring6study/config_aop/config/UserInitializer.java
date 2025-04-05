@@ -20,7 +20,7 @@ public class UserInitializer implements CommandLineRunner {
     public void run(String... args) {
         if (userRepository.count() == 0) {
             Random random = new Random();
-            IntStream.range(0, 1000).forEach(i -> {
+            IntStream.range(0, 10000).forEach(i -> {
                 String username = "User" + i;
                 String email = "user" + i + "@example.com";
                 userRepository.save(new User(username, email));
