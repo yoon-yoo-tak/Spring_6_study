@@ -1,0 +1,10 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="coffeeCapsule" class="com.spring6_study.section02_concept_and_implementation_of_di.di.solution.capsule_coffee_machine_factory.spring.xml.Nespresso"/>
+    <bean id="coffeeMachine" class="com.spring6_study.section02_concept_and_implementation_of_di.di.solution.capsule_coffee_machine_factory.spring.xml.CoffeeMachine">
+        <constructor-arg ref = "coffeeCapsule"/>
+    </bean>
+</beans>

@@ -1,0 +1,9 @@
+rootProject.name = 'spring6-study'
+
+include '001-understand-ioc-and-di-concepts'
+include '002-overview-of-spring-and-introduction-to-subprojects'
+include '003-spring-bean-life-cycle'
+include '004-dependency-injection-method-comparison'
+include '005-comparing-as-is-ans-to-be-codes'
+include '006-understanding-bean-scope'
+include '007-singleton-and-thread-safe'
