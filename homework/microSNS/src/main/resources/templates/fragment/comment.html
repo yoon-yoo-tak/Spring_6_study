@@ -1,0 +1,10 @@
+<div th:fragment="commentList(comments)">
+    <ul>
+        <li th:each="c : ${comments}">
+            <p th:text="${c.content}">댓글 내용</p>
+            <p><small th:text="${c.writer}">작성자</small> | <small th:text="${c.createdAt}">작성일</small></p>
+            <button class="edit-comment-btn" data-id2="[[${c.id2}]]">수정</button>
+            <button class="delete-comment-btn" data-id2="[[${c.id2}]]">삭제</button>
+        </li>
+    </ul>
+</div>

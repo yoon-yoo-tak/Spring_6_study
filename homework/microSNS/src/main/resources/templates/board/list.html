@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: layout">
+<body>
+<div>
+    <a th:href="@{/posts/new}">새 게시글 작성</a>
+</div>
+
+<div id="post-list">
+    <div th:each="post : ${posts}" th:replace="fragment/post-item :: postItem(${post})"></div>
+</div>
+
+<div id="load-more-trigger"></div> <!-- 무한스크롤 트리거 -->
+
+<script th:src="@{/js/infinite-scroll.js}"></script>
+</body>
+</html>

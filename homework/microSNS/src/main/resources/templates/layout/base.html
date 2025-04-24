@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title} ?: 'My Micro SNS'"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1><a th:href="@{/}">My Micro SNS</a></h1>
+</header>
+
+<main>
+    <div th:replace="~{::body}"></div>
+</main>
+
+<footer>
+    <p>© 2025 Mini SNS</p>
+</footer>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

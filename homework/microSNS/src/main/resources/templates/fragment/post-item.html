@@ -1,0 +1,7 @@
+<div th:fragment="postItem(post)">
+    <article>
+        <h2><a th:href="@{'/posts/' + ${post.id}}" th:text="${post.title}">제목</a></h2>
+        <p th:text="${post.content}">내용</p>
+        <p><small th:text="${post.createdAt}">날짜</small></p>
+    </article>
+</div>
