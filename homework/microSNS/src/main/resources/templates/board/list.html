@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: layout">
-<body>
-<div>
-    <a th:href="@{/posts/new}">새 게시글 작성</a>
+<!-- templates/board/list.html -->
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="content" class="container">
+    <h1>게시글 목록</h1>
+    <a th:href="@{/board/new}">새 글 쓰기</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+        </tr>
+        </thead>
+        <tbody id="board-table-body">
+        <!-- 게시글 row가 JS로 동적 추가됨 -->
+        </tbody>
+    </table>
+
+    <div id="loading" style="text-align:center; padding: 1rem; display: none;">로딩 중...</div>
 </div>
 
-<div id="post-list">
-    <div th:each="post : ${posts}" th:replace="fragment/post-item :: postItem(${post})"></div>
-</div>
-
-<div id="load-more-trigger"></div> <!-- 무한스크롤 트리거 -->
-
-<script th:src="@{/js/infinite-scroll.js}"></script>
-</body>
-</html>
+<th:block th:fragment="script">
+    <script th:src="@{/js/infinite-scroll.js}"></script>
+</th:block>

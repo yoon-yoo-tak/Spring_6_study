@@ -1,21 +1,49 @@
-<div>
-    <h1 th:text="${post.title}">제목</h1>
-    <p th:text="${post.content}">내용</p>
-
-    <div>
-        <a th:href="@{'/posts/' + ${post.id} + '/edit'}">수정</a>
+<!-- board/detail.html -->
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="content" class="container">
+    <!-- 게시글 헤더 -->
+    <div class="post-header">
+        <h1 class="post-title" th:text="${post.title}">제목</h1>
+        <div class="post-meta">
+            <span th:text="'작성자: ' + ${post.writer}">작성자</span> |
+            <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">작성일</span>
+        </div>
     </div>
 
+    <!-- 게시글 내용 -->
+    <div class="post-content">
+        <p th:text="${post.content}">내용</p>
+    </div>
+
+    <!-- 게시글 수정/삭제 버튼 영역 -->
+    <div class="post-actions" style="margin-top: 2rem;">
+        <div style="display: flex; gap: 0.5rem;">
+            <a th:href="@{'/board/' + ${post.id} + '/edit'}" class="btn btn-edit">수정</a>
+            <button type="button" class="btn btn-delete" id="toggle-delete-form">삭제</button>
+        </div>
+
+        <!-- 삭제용 비밀번호 입력창 (기본 hidden) -->
+        <form id="delete-form" th:action="@{'/board/' + ${post.id} + '/delete'}" method="post"
+              style="margin-top: 0.5rem; display: none;">
+            <input type="password" name="password" placeholder="비밀번호" required />
+            <button type="submit" class="btn btn-delete">삭제 확인</button>
+        </form>
+
+        <div th:if="${error}" class="error-text" th:text="${error}" style="color: red; margin-top: 0.5rem;"></div>
+    </div>
+
+
     <!-- 댓글 리스트 -->
-    <div id="comment-list" th:replace="fragment/comment :: commentList(${comments})"></div>
+    <div id="comment-list">
+        <div th:insert="fragment/comment :: commentList(${comments})"></div>
+    </div>
 
     <!-- 댓글 작성 -->
-    <form id="comment-form" th:action="@{'/posts/' + ${post.id} + '/comments'}" method="post">
-        <input type="text" name="writer" placeholder="작성자">
-        <input type="text" name="password" placeholder="비밀번호">
-        <textarea name="content" placeholder="댓글을 입력하세요"></textarea>
-        <button type="submit">댓글 작성</button>
+    <form id="comment-form" th:action="@{'/board/' + ${post.id} + '/comments'}" method="post" class="comment-form">
+        <input type="text" name="writer" placeholder="작성자" required />
+        <input type="password" name="password" placeholder="비밀번호" required />
+        <textarea name="content" placeholder="댓글을 입력하세요" required></textarea>
+        <button type="submit" class="btn">댓글 작성</button>
     </form>
-
     <script th:src="@{/js/comment.js}"></script>
 </div>
+

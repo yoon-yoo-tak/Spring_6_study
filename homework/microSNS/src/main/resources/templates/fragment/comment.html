@@ -1,10 +1,28 @@
 <div th:fragment="commentList(comments)">
-    <ul>
-        <li th:each="c : ${comments}">
-            <p th:text="${c.content}">댓글 내용</p>
-            <p><small th:text="${c.writer}">작성자</small> | <small th:text="${c.createdAt}">작성일</small></p>
-            <button class="edit-comment-btn" data-id2="[[${c.id2}]]">수정</button>
-            <button class="delete-comment-btn" data-id2="[[${c.id2}]]">삭제</button>
-        </li>
-    </ul>
+<div class="comment" th:each="c : ${comments}" th:id="'comment-' + ${c.id}">
+    <p>
+        <strong th:text="${c.writer}">작성자</strong>
+        <span th:text="${#temporals.format(c.createdAt, 'yyyy-MM-dd HH:mm')}">작성일</span>
+    </p>
+    <p th:text="${c.content}">내용</p>
+
+    <!-- 버튼 영역 -->
+    <div class="comment-actions">
+        <button class="btn-edit" th:attr="data-id=${c.id}">수정</button>
+        <button class="btn-delete" th:attr="data-id=${c.id}">삭제</button>
+    </div>
+
+    <!-- 수정 영역 (기본 hidden) -->
+    <div class="edit-box hidden">
+        <textarea class="edit-content" th:text="${c.content}"></textarea>
+        <input type="password" class="edit-password" placeholder="비밀번호" />
+        <button class="edit-confirm" th:attr="data-id=${c.id}">수정 완료</button>
+    </div>
+
+    <!-- 삭제 영역 (기본 hidden) -->
+    <div class="delete-box hidden">
+        <input type="password" class="delete-password" placeholder="비밀번호" />
+        <button class="delete-confirm" th:attr="data-id=${c.id}">삭제 확인</button>
+    </div>
+</div>
 </div>

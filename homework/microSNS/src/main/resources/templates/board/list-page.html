@@ -1,0 +1,11 @@
+<!-- templates/board/list-page.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="content">
+<head th:include="layout/base :: head"></head>
+
+<body>
+<div th:replace="board/list :: content"></div>
+<th:block th:replace="board/list :: script"></th:block>
+</body>
+</html>
