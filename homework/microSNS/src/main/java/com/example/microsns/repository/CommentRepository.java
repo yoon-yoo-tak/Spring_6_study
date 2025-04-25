@@ -1,6 +1,6 @@
-package com.example.microsns;
+package com.example.microsns.repository;
 
-import com.example.microsns.jdbc.domain.Comment;
+import com.example.microsns.domain.Comment;
 
 import java.util.List;
 import java.util.Optional;

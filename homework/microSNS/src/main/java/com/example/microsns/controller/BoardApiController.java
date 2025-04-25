@@ -1,7 +1,7 @@
-package com.example.microsns.jdbc;
+package com.example.microsns.controller;
 
-import com.example.microsns.jdbc.domain.Board;
-import com.example.microsns.jdbc.service.BoardService;
+import com.example.microsns.domain.Board;
+import com.example.microsns.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

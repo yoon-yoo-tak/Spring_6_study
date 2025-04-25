@@ -1,9 +1,9 @@
-package com.example.microsns.jdbc;
+package com.example.microsns.controller;
 
-import com.example.microsns.jdbc.domain.Board;
-import com.example.microsns.jdbc.domain.Comment;
-import com.example.microsns.jdbc.service.BoardService;
-import com.example.microsns.jdbc.service.CommentService;
+import com.example.microsns.domain.Board;
+import com.example.microsns.domain.Comment;
+import com.example.microsns.service.BoardService;
+import com.example.microsns.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;

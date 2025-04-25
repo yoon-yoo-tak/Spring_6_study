@@ -1,4 +1,4 @@
-package com.example.microsns.jdbc.domain;
+package com.example.microsns.domain;
 
 import lombok.*;
 

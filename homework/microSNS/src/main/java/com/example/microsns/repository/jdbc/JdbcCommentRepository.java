@@ -1,7 +1,7 @@
-package com.example.microsns.jdbc.repository;
+package com.example.microsns.repository.jdbc;
 
-import com.example.microsns.CommentRepository;
-import com.example.microsns.jdbc.domain.Comment;
+import com.example.microsns.repository.CommentRepository;
+import com.example.microsns.domain.Comment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
