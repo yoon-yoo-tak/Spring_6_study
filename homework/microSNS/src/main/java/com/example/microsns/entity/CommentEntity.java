@@ -46,7 +46,6 @@ public class CommentEntity {
     public Comment toComment() {
         Comment comment = new Comment();
         comment.setId(id);
-        comment.setBoardId(boardEntity.getId());
         comment.setWriter(writer);
         comment.setContent(content);
         comment.setPassword(password);

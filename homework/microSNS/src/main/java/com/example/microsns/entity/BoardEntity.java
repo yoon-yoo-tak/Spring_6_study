@@ -45,24 +45,15 @@ public class BoardEntity {
         modifiedAt = LocalDateTime.now();
     }
 
-    public void update(Board board) {
-        this.title = board.getTitle();
-        this.content = board.getContent();
-        this.writer = board.getWriter();
-        this.password = board.getPassword();
-        this.createdAt = board.getCreatedAt();
-        this.modifiedAt = board.getModifiedAt();
-    }
-
     public Board toBoard() {
-        Board board = new Board();
-        board.setTitle(this.title);
-        board.setContent(this.content);
-        board.setWriter(this.writer);
-        board.setPassword(this.password);
-        board.setCreatedAt(this.createdAt);
-        board.setModifiedAt(this.modifiedAt);
-        return board;
+//        Board board = new Board();
+//        board.setTitle(this.title);
+//        board.setContent(this.content);
+//        board.setWriter(this.writer);
+//        board.setPassword(this.password);
+//        board.setCreatedAt(this.createdAt);
+//        board.setModifiedAt(this.modifiedAt);
+        return null;
     }
 
 }

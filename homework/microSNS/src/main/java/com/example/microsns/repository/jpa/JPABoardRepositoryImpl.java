@@ -48,7 +48,8 @@ public class JPABoardRepositoryImpl implements BoardRepository {
     @Override
     public void update(Board board) {
         BoardEntity boardEntity = jpaBoardRepository.findById(board.getId()).orElse(null);
-        boardEntity.update(board);
+        boardEntity.setTitle(board.getTitle());
+        boardEntity.setContent(board.getContent());
     }
 
     @Override

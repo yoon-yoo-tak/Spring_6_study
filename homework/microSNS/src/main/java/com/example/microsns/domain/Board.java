@@ -17,16 +17,4 @@ public class Board {
     private String password;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-
-    public BoardEntity toEntity() {
-        BoardEntity boardEntity = new BoardEntity();
-        boardEntity.setId(id);
-        boardEntity.setTitle(title);
-        boardEntity.setContent(content);
-        boardEntity.setWriter(writer);
-        boardEntity.setPassword(password);
-        boardEntity.setCreatedAt(createdAt);
-        boardEntity.setModifiedAt(modifiedAt);
-        return boardEntity;
-    }
 }

@@ -17,12 +17,12 @@
     <!-- 게시글 수정/삭제 버튼 영역 -->
     <div class="post-actions" style="margin-top: 2rem;">
         <div style="display: flex; gap: 0.5rem;">
-            <a th:href="@{'/boardEntity/' + ${post.id} + '/edit'}" class="btn btn-edit">수정</a>
+            <a th:href="@{'/board/' + ${post.id} + '/edit'}" class="btn btn-edit">수정</a>
             <button type="button" class="btn btn-delete" id="toggle-delete-form">삭제</button>
         </div>
 
         <!-- 삭제용 비밀번호 입력창 (기본 hidden) -->
-        <form id="delete-form" th:action="@{'/boardEntity/' + ${post.id} + '/delete'}" method="post"
+        <form id="delete-form" th:action="@{'/board/' + ${post.id} + '/delete'}" method="post"
               style="margin-top: 0.5rem; display: none;">
             <input type="password" name="password" placeholder="비밀번호" required />
             <button type="submit" class="btn btn-delete">삭제 확인</button>
@@ -38,7 +38,7 @@
     </div>
 
     <!-- 댓글 작성 -->
-    <form id="comment-form" th:action="@{'/boardEntity/' + ${post.id} + '/comments'}" method="post" class="comment-form">
+    <form id="comment-form" th:action="@{'/board/' + ${post.id} + '/comments'}" method="post" class="comment-form">
         <input type="text" name="writer" placeholder="작성자" required />
         <input type="password" name="password" placeholder="비밀번호" required />
         <textarea name="content" placeholder="댓글을 입력하세요" required></textarea>
