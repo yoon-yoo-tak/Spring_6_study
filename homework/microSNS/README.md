@@ -1,8 +1,20 @@
 # micro SNS
 
-## 1. JDBC
-## 2. Spring JDBC
-## 3. Sprint Data JPA
+## 목차
+- [목표](#목표)
+- [개발환경](#개발환경)
+- [기능 구현 목록](#기능-구현-목록)
+- [기능 상세 설명](#기능-상세-설명)
+- [ERD](#erd)
+- [테스트 방법](#테스트-방법)
+
+---
+
+## 목표
+
+### 1. JDBC
+### 2. Spring JDBC
+### 3. Sprint Data JPA
 
 위 3가지를 이용해 마이크로 SNS 서비스를 구현합니다.
 
@@ -27,8 +39,8 @@
 
 
 - [x] 위 기능 JDBC로 구현
-- [ ] 위 기능 Spring JDBC로 구현
-- [ ] 위 기능 Spring Data JPA로 구현
+- [x] 위 기능 Spring JDBC로 구현
+- [x] 위 기능 Spring Data JPA로 구현
 
 ---
 
@@ -59,4 +71,16 @@
 ## ERD
 
 ![img.png](img.png)
+
+---
+
+## 테스트 방법
+
+applicaiton.yml에서 spring.active.profiles의 설정에 따라
+구현 방식을 바꿀 수 있습니다.
+
+아래 3가지 옵션을 통해 바꿀 수 있습니다.
+- jdbc
+- springjdbc
+- jpa
 
