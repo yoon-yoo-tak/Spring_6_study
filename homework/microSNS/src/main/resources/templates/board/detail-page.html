@@ -1,4 +1,4 @@
-<!-- templates/board/detail-page.html -->
+<!-- templates/boardEntity/detail-page.html -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const deleteBtn = document.getElementById("toggle-delete-form");
@@ -11,5 +11,5 @@
 </script>
 <head th:include="layout/base :: head"></head>
 <div xmlns:th="http://www.thymeleaf.org" th:fragment="content">
-    <div th:replace="board/detail :: content"></div>
+    <div th:replace="boardEntity/detail :: content"></div>
 </div>

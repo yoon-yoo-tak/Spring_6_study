@@ -8,5 +8,5 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
   profiles:
-    active: jdbc
+    active: jpa
 

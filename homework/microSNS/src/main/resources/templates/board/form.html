@@ -1,8 +1,8 @@
-<!-- templates/board/form.html -->
+<!-- templates/boardEntity/form.html -->
 <div xmlns:th="http://www.thymeleaf.org" th:fragment="content">
     <h1 th:text="${mode == 'edit'} ? '게시글 수정' : '게시글 작성'"></h1>
 
-    <form th:action="@{${mode == 'edit'} ? '/board/' + ${post.id} + '/edit' : '/board'}"
+    <form th:action="@{${mode == 'edit'} ? '/boardEntity/' + ${post.id} + '/edit' : '/boardEntity'}"
           method="post" th:object="${post}">
 
         <div>

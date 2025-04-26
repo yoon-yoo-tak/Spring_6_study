@@ -1,7 +1,7 @@
-<!-- templates/board/list.html -->
+<!-- templates/boardEntity/list.html -->
 <div xmlns:th="http://www.thymeleaf.org" th:fragment="content" class="container">
     <h1>게시글 목록</h1>
-    <a th:href="@{/board/new}">새 글 쓰기</a>
+    <a th:href="@{/boardEntity/new}">새 글 쓰기</a>
 
     <table>
         <thead>
@@ -12,7 +12,7 @@
             <th>작성일</th>
         </tr>
         </thead>
-        <tbody id="board-table-body">
+        <tbody id="boardEntity-table-body">
         <!-- 게시글 row가 JS로 동적 추가됨 -->
         </tbody>
     </table>

@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @ActiveProfiles("jdbc")
-public class BoardServiceJdbcTxTest {
+public class BoardEntityServiceJdbcTxTest {
     @Autowired
     private DataSource dataSource;
 
