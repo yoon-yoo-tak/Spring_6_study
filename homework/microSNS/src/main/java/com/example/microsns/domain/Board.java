@@ -1,6 +1,5 @@
 package com.example.microsns.domain;
 
-import com.example.microsns.entity.BoardEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;

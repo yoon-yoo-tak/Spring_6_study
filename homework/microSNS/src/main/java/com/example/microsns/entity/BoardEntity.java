@@ -4,23 +4,22 @@ import com.example.microsns.domain.Board;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Profile("jpa")
 @Entity
+@Table(name = "board")
 @Getter
 @Setter
 public class BoardEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
+
     @Lob
     private String content;
 
@@ -32,8 +31,12 @@ public class BoardEntity {
 
     private LocalDateTime modifiedAt;
 
-    @OneToMany(mappedBy = "boardEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CommentEntity> commentEntities = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "board",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<CommentEntity> comments = new ArrayList<>();
 
     @PrePersist
     public void prePersist() {
@@ -46,14 +49,15 @@ public class BoardEntity {
     }
 
     public Board toBoard() {
-//        Board board = new Board();
-//        board.setTitle(this.title);
-//        board.setContent(this.content);
-//        board.setWriter(this.writer);
-//        board.setPassword(this.password);
-//        board.setCreatedAt(this.createdAt);
-//        board.setModifiedAt(this.modifiedAt);
-        return null;
+        Board board = new Board();
+        board.setId(this.id);
+        board.setTitle(this.title);
+        board.setContent(this.content);
+        board.setWriter(this.writer);
+        board.setPassword(this.password);
+        board.setCreatedAt(this.createdAt);
+        board.setModifiedAt(this.modifiedAt);
+        return board;
     }
 
 }

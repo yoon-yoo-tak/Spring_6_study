@@ -5,7 +5,6 @@ import com.example.microsns.domain.Comment;
 import com.example.microsns.service.BoardService;
 import com.example.microsns.service.CommentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -92,9 +91,7 @@ public class BoardController {
         comment.setPassword(password);
         comment.setContent(content);
         comment.setCreatedAt(LocalDateTime.now());
-
         commentService.save(comment, id);
-
         return comment;
     }
 

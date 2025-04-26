@@ -4,6 +4,7 @@ import com.example.microsns.repository.CommentRepository;
 import com.example.microsns.domain.Comment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,14 +19,17 @@ public class CommentService {
         return commentRepository.findByBoardId(boardId);
     }
 
+    @Transactional
     public void save(Comment comment, Long boardId) {
         commentRepository.save(comment, boardId);
     }
 
+    @Transactional
     public boolean updateComment(Long id, String password, String content) {
+
         return commentRepository.update(id, password, content);
     }
-
+    @Transactional
     public boolean deleteComment(Long id, String password) {
         return commentRepository.delete(id, password);
     }

@@ -4,11 +4,10 @@ import com.example.microsns.repository.BoardRepository;
 import com.example.microsns.domain.Board;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,10 +31,12 @@ public class BoardService {
         return boardRepository.findById(id);
     }
 
+    @Transactional
     public void update(Board board){
         boardRepository.update(board);
     }
 
+    @Transactional
     public void delete(Long id) {
         boardRepository.delete(id);
     }

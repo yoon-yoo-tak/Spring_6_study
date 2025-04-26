@@ -4,23 +4,22 @@ import com.example.microsns.domain.Comment;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDateTime;
 
-@Profile("jpa")
 @Entity
-@Getter
+@Table(name = "comment")
 @Setter
+@Getter
 public class CommentEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // 지연 로딩 + N:1 매핑
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "board_id")
-    private BoardEntity boardEntity;
+    @JoinColumn(name = "board_id", nullable = false)
+    private BoardEntity board;
 
     private String writer;
 
@@ -56,12 +55,12 @@ public class CommentEntity {
 
     public static CommentEntity fromComment(Comment comment) {
         CommentEntity commentEntity = new CommentEntity();
-        commentEntity.setId(comment.getId());
+//        commentEntity.setId(comment.getId());
         commentEntity.setWriter(comment.getWriter());
         commentEntity.setContent(comment.getContent());
         commentEntity.setPassword(comment.getPassword());
-        commentEntity.setCreatedAt(comment.getCreatedAt());
-        commentEntity.setModifiedAt(comment.getModifiedAt());
+//        commentEntity.setCreatedAt(comment.getCreatedAt());
+//        commentEntity.setModifiedAt(comment.getModifiedAt());
         return commentEntity;
     }
 }

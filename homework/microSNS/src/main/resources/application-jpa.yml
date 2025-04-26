@@ -1,7 +1,8 @@
-jpa:
-  hibernate:
-    ddl-auto: update
-  properties:
+spring:
+  jpa:
     hibernate:
-      format_sql: true
-  show-sql: true
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true

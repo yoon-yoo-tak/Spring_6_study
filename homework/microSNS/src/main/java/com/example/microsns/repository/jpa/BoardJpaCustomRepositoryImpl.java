@@ -14,9 +14,9 @@ import java.util.List;
 @Profile("jpa")
 @Repository
 @RequiredArgsConstructor
-public class JPABoardRepositoryImpl implements BoardRepository {
+public class BoardJpaCustomRepositoryImpl implements BoardRepository {
 
-    private final JPABoardRepository jpaBoardRepository;
+    private final BoardJpaRepository boardJpaRepository;
 
     @Override
     public void save(Board board) throws SQLException {
@@ -27,39 +27,40 @@ public class JPABoardRepositoryImpl implements BoardRepository {
         entity.setPassword(board.getPassword());
         entity.setCreatedAt(board.getCreatedAt());
         entity.setModifiedAt(board.getModifiedAt());
-        jpaBoardRepository.save(entity);
+        boardJpaRepository.save(entity);
     }
 
     @Override
     public Board findById(Long id) {
-        return jpaBoardRepository.findById(id)
+        return boardJpaRepository.findById(id)
                 .map(e -> e.toBoard())
                 .orElse(null);
     }
 
     @Override
     public List<Board> findAll() {
-        return jpaBoardRepository.findAll()
+        List<Board> list = boardJpaRepository.findAll()
                 .stream()
                 .map(e -> e.toBoard())
                 .toList();
+        return list;
     }
 
     @Override
     public void update(Board board) {
-        BoardEntity boardEntity = jpaBoardRepository.findById(board.getId()).orElse(null);
+        BoardEntity boardEntity = boardJpaRepository.findById(board.getId()).orElse(null);
         boardEntity.setTitle(board.getTitle());
         boardEntity.setContent(board.getContent());
     }
 
     @Override
     public void delete(Long id) {
-        jpaBoardRepository.deleteById(id);
+        boardJpaRepository.deleteById(id);
     }
 
     @Override
     public List<Board> findRecent(int limit) {
-        return jpaBoardRepository.findAllByOrderByIdDesc(PageRequest.of(0, limit))
+        return boardJpaRepository.findAllByOrderByIdDesc(PageRequest.of(0, limit))
                 .stream()
                 .map(entity -> entity.toBoard())
                 .toList();
@@ -67,7 +68,7 @@ public class JPABoardRepositoryImpl implements BoardRepository {
 
     @Override
     public List<Board> findOlderThan(Long lastId, int limit) {
-        return jpaBoardRepository.findByIdLessThanOrderByIdDesc(lastId, PageRequest.of(0, limit))
+        return boardJpaRepository.findByIdLessThanOrderByIdDesc(lastId, PageRequest.of(0, limit))
                 .stream()
                 .map(entity -> entity.toBoard())
                 .toList();

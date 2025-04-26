@@ -4,6 +4,7 @@ import com.example.microsns.domain.Comment;
 import com.example.microsns.entity.CommentEntity;
 import com.example.microsns.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
@@ -14,15 +15,15 @@ import java.util.Optional;
 @Repository
 @Profile("jpa")
 @RequiredArgsConstructor
-public class JPACommentRepositoryImpl implements CommentRepository {
+public class CommentJpaCustomRepositoryImpl implements CommentRepository {
 
-    private final JPACommentRepository jpaCommentRepository;
-    private final JPABoardRepository boardRepository;
-
+    private final CommentJpaRepository commentJpaRepository;
+    private final BoardJpaRepository boardJpaRepository;
+    private final MessageSource messageSource;
 
     @Override
     public List<Comment> findByBoardId(Long boardId) {
-        return jpaCommentRepository.findByBoardIdOrderByCreatedAt(boardId)
+        return commentJpaRepository.findByBoardIdOrderByCreatedAt(boardId)
                 .stream()
                 .map(e -> e.toComment())
                 .toList();
@@ -30,20 +31,24 @@ public class JPACommentRepositoryImpl implements CommentRepository {
 
     @Override
     public Optional<Comment> findById(Long id) {
-        return jpaCommentRepository.findById(id)
+        return commentJpaRepository.findById(id)
                 .map(e -> e.toComment());
     }
 
     @Override
     public void save(Comment comment, Long boardId) {
         CommentEntity commentEntity = CommentEntity.fromComment(comment);
-        commentEntity.setBoardEntity(boardRepository.findById(boardId).orElse(null));
-        jpaCommentRepository.save(commentEntity);
+        commentEntity.setBoard(boardJpaRepository.findById(boardId).orElse(null));
+        CommentEntity comment1 = commentJpaRepository.save(commentEntity);
+        comment.setId(comment1.getId());
     }
 
     @Override
     public boolean update(Long id, String password, String newContent) {
-        CommentEntity commentEntity = jpaCommentRepository.findById(id).orElse(null);
+        CommentEntity commentEntity = commentJpaRepository.findById(id).orElse(null);
+        System.out.println("password : " + password);
+        System.out.println("newContent : " + newContent);
+        System.out.println(commentEntity.getPassword());
         if(commentEntity == null || !commentEntity.getPassword().equals(password)) {
             return false;
         }
@@ -54,11 +59,11 @@ public class JPACommentRepositoryImpl implements CommentRepository {
 
     @Override
     public boolean delete(Long id, String password) {
-        CommentEntity entity = jpaCommentRepository.findById(id).orElse(null);
+        CommentEntity entity = commentJpaRepository.findById(id).orElse(null);
         if (entity == null || !entity.getPassword().equals(password)) {
             return false;
         }
-        jpaCommentRepository.delete(entity);
+        commentJpaRepository.delete(entity);
         return true;
     }
 }
