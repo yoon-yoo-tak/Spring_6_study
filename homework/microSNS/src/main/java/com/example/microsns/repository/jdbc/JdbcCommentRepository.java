@@ -3,6 +3,7 @@ package com.example.microsns.repository.jdbc;
 import com.example.microsns.repository.CommentRepository;
 import com.example.microsns.domain.Comment;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Profile("jdbc")
 @RequiredArgsConstructor
 public class JdbcCommentRepository implements CommentRepository {
 

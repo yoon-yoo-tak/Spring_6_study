@@ -18,7 +18,6 @@ import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
-@Profile("jdbc")
 public class BoardController {
 
     private final BoardService boardService;
@@ -104,6 +103,7 @@ public class BoardController {
     public Map<String, Object> editComment(@PathVariable Long id,
                                            @RequestParam String password,
                                            @RequestParam String content) {
+        System.out.println("id = " + id);
         boolean success = commentService.updateComment(id, password, content);
         Map<String, Object> result = new HashMap<>();
         result.put("success", success);

@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Profile("jdbc")
 public class BoardService {
 
     private final BoardRepository boardRepository;
