@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -15,7 +16,7 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public void create(Board board) {
+    public void create(Board board) throws SQLException {
         boardRepository.save(board);
     }
 

@@ -83,6 +83,9 @@ public class JdbcCommentRepository implements CommentRepository {
 
     @Override
     public void save(Comment comment, Long boardId) {
+        if (comment.getWriter() == null) {
+            throw new IllegalArgumentException("작성자는 빈 값일 수 없습니다.");
+        }
         String sql = "INSERT INTO comment (board_id, writer, content, password, created_at) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);) {

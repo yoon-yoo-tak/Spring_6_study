@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class BoardController {
 
     // 작성 처리
     @PostMapping("/board")
-    public String create(@ModelAttribute Board board) {
+    public String create(@ModelAttribute Board board) throws SQLException {
         boardService.create(board);
         return "redirect:/";
     }

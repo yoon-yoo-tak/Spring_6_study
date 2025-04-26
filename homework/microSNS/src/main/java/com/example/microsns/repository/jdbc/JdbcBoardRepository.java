@@ -2,6 +2,7 @@ package com.example.microsns.repository.jdbc;
 
 import com.example.microsns.repository.BoardRepository;
 import com.example.microsns.domain.Board;
+import com.example.microsns.repository.ConnectionHolder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
@@ -22,18 +23,19 @@ public class JdbcBoardRepository implements BoardRepository {
     private final DataSource dataSource;
 
     @Override
-    public void save(Board board) {
+    public void save(Board board) throws SQLException{
         String sql = "INSERT INTO board (title, content, writer, password)" +
                 "values (?, ?, ?, ?)";
-        try(Connection conn = dataSource.getConnection();
-        PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        Connection conn = ConnectionHolder.get();
+        if (conn == null) {
+            conn = dataSource.getConnection();
+        }
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, board.getTitle());
             pstmt.setString(2, board.getContent());
             pstmt.setString(3, board.getWriter());
             pstmt.setString(4, board.getPassword());
             pstmt.executeUpdate();
-        }catch (SQLException e){
-            throw new RuntimeException(e);
         }
     }
 
