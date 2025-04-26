@@ -19,6 +19,7 @@
         <div style="display: flex; gap: 0.5rem;">
             <a th:href="@{'/board/' + ${post.id} + '/edit'}" class="btn btn-edit">수정</a>
             <button type="button" class="btn btn-delete" id="toggle-delete-form">삭제</button>
+            <a th:href="@{/}" class="btn btn-secondary">메인으로</a>
         </div>
 
         <!-- 삭제용 비밀번호 입력창 (기본 hidden) -->
